@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/searchFragment">
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.aapp.search.SearchFragment"
+        android:label="가격검색"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_saveFragment"
+            app:destination="@id/saveFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.aapp.result.ResultFragment"
+        android:label="검색결과"
+        tools:layout="@layout/fragment_result" >
+        <argument
+            android:name="RESULT_AMOUNT"
+            app:argType="string" />
+        <argument
+            android:name="SELECT_DATE"
+            app:argType="string" />
+        <argument
+            android:name="SELECT_FRUIT"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/saveFragment"
+        android:name="com.example.aapp.local.SaveFragment"
+        android:label="저장된 내역"
+        tools:layout="@layout/fragment_save" >
+        <argument
+            android:name="SAVE_ID"
+            app:argType="long" />
+    </fragment>
+</navigation>
